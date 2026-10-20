@@ -1,0 +1,41 @@
+{
+    "mesaj_straturi": {
+        "straturi_detectate": [
+            "base64",
+            "base64",
+            "hex"
+        ],
+        "text_clar": "FLAG{straturi_de_encoding}"
+    },
+    "xor": {
+        "cheie_hex": "0x80",
+        "text_clar": "Un singur octet tine tot secretul... gaseste-l! FLAG{xor_un_octet}"
+    },
+    "hashuri": [
+        {
+            "hash": "5f4dcc3b5aa765d61d8327deb882cf99",
+            "parola": "password",
+            "algoritm": "md5"
+        },
+        {
+            "hash": "8621ffdbc5698829397d97767ac13db3",
+            "parola": "dragon",
+            "algoritm": "md5"
+        },
+        {
+            "hash": "d8578edf8458ce06fbc5bb76a58c5ca4",
+            "parola": "qwerty",
+            "algoritm": "md5"
+        },
+        {
+            "hash": "0d107d09f5bbe40cade3de5c71e9e9b7",
+            "parola": "letmein",
+            "algoritm": "md5"
+        },
+        {
+            "hash": "d0763edaa9d9bd2a9516280e9044d885",
+            "parola": "monkey",
+            "algoritm": "md5"
+        }
+    ]
+}
