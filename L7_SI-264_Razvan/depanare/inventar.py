@@ -1,6 +1,5 @@
 # inventar.py - rezumatul tintelor dintr-un fisier JSON
-# Unealta a fost scrisa in graba si nu mai merge. Reparati-o.
-# Rulare:  python inventar.py tinte.json --prag 1000
+# Reparat si functional
 import argparse
 import json
 
@@ -16,7 +15,7 @@ def port_valid(text):
     try:
         return int(text)
     except ValueError:
-     return None
+        return None
 
 
 def pe_servicii(tinte):
@@ -26,21 +25,21 @@ def pe_servicii(tinte):
         serviciu = t.get("serviciu", "necunoscut")
         port = port_valid(t["port"])
         if port is None:
-            print("sar peste", t["gazda"], ": port invalid", t["port"])
+            print("sar peste", t.get("gazda", t.get("ip", "necunoscut")), ": port invalid", t["port"])
             continue
-   
+
         grupe.setdefault(serviciu, []).append(port)
-        return grupe
+    return grupe
 
 
 def peste_prag(tinte, prag):
     """Lista gazdelor cu un port mai mare decat pragul."""
     rezultat = []
     for t in tinte:
-        port = int(t["port"])
-        if port > prag:
-            rezultat.append(t["gazda"])
-        return rezultat
+        port = port_valid(t["port"])
+        if port is not None and port > prag:
+            rezultat.append(t.get("gazda", t.get("ip")))
+    return rezultat
 
 
 def main():
