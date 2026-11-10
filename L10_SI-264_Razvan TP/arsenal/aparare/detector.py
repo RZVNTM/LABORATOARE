@@ -4,11 +4,10 @@ from collections import Counter
 from arsenal.aparare.parse_auth import citeste_esecuri
 
 def suspecti(counts, prag=10):
-    """Întoarce adresele cu cel puțin `prag` eșecuri, sortate descrescător."""
+   
     if prag < 1:
         raise ValueError(f"prag invalid: {prag} (cel putin 1)")
     
-    # Adunăm IP-urile care trec pragul și le sortăm după numărul de încercări
     rezultate = [(ip, n) for ip, n in counts.items() if n >= prag]
     rezultate.sort(key=lambda x: x[1], reverse=True)
     return rezultate

@@ -2,18 +2,15 @@ import sys
 import re
 from collections import Counter
 
-# Expresie regulată pentru a extrage utilizatorul și IP-ul din eșecuri
 TIPAR = re.compile(r"Failed password for (?:invalid user )?(\S+) from (\S+) port")
 
 def esec(linie):
-    """Întoarce (user, ip) dacă rândul e un eșec, altfel None."""
     m = TIPAR.search(linie)
     if m is None:
         return None
     return (m.group(1), m.group(2))
 
 def citeste_esecuri(cale):
-    """Citește fișierul robust și adaugă fișele într-o listă de dicționare."""
     esecuri = []
     try:
         f = open(cale, encoding="utf-8")
